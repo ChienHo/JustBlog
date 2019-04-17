@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs
+/FA.JustBlog/.vs/FA.JustBlog/v16
+/FA.JustBlog/FA.JustBlog.Core/bin/Debug
+/FA.JustBlog/FA.JustBlog.Core/obj/Debug
+/FA.JustBlog/packages/EntityFramework.6.2.0
