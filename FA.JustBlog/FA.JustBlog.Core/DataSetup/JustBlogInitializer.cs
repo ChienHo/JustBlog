@@ -4,6 +4,8 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace FA.JustBlog.Core
 {
@@ -13,6 +15,7 @@ namespace FA.JustBlog.Core
         {
             SeedData(context);
             base.Seed(context);
+            Task.Run(async () => { await SeedAsync(context); }).Wait();
         }
         private static void SeedData(JustBlogContext context)
         {
@@ -142,5 +145,120 @@ namespace FA.JustBlog.Core
             posts.ForEach(s => context.Posts.Add(s));
             context.SaveChanges();
         }
+        #region Add User and Role Identity
+
+        private async Task SeedAsync(JustBlogContext context)
+        {
+
+
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            var passwordHasher = new Microsoft.AspNet.Identity.PasswordHasher();
+
+            if (!roleManager.Roles.Any())
+            {
+                await roleManager.CreateAsync(new IdentityRole("Administrators"));
+                await roleManager.CreateAsync(new IdentityRole("Manager"));
+                await roleManager.CreateAsync(new IdentityRole("Seller"));
+            }
+
+            if (!userManager.Users.Any(u => u.UserName == "admin@domain.com"))
+            {
+                var user = new ApplicationUser
+                {
+                    Email = "admin@domain.com",
+                    UserName = "admin@domain.com",
+                    PasswordHash = passwordHasher.HashPassword("Abc@1234"),
+                    EmailConfirmed = true,
+                    PhoneNumber = "0944551356",
+                    PhoneNumberConfirmed = true,
+                    LockoutEnabled = true,
+                    AccessFailedCount = 0,
+                    TwoFactorEnabled = false,
+                    SecurityStamp = Guid.NewGuid().ToString("D")
+                };
+
+                await userManager.CreateAsync(user, "Abc@1234");
+                await userManager.AddToRoleAsync(user.Id, "Administrators");
+                await userManager.AddToRoleAsync(user.Id, "Manager");
+                await userManager.AddToRoleAsync(user.Id, "Seller");
+            }
+
+            if (!userManager.Users.Any(u => u.UserName == "cong@domain.com"))
+            {
+                var user = new ApplicationUser
+                {
+                    Email = "cong@domain.com",
+                    UserName = "cong@domain.com",
+                    EmailConfirmed = true,
+                    PhoneNumber = "0944551356",
+                    PhoneNumberConfirmed = true,
+                    LockoutEnabled = true,
+                    AccessFailedCount = 0,
+                    TwoFactorEnabled = false,
+                    SecurityStamp = Guid.NewGuid().ToString("D")
+                };
+
+                await userManager.CreateAsync(user, "Abc@1234");
+                await userManager.AddToRoleAsync(user.Id, "Administrators");
+            }
+
+            if (!userManager.Users.Any(u => u.UserName == "van@domain.com"))
+            {
+                var user = new ApplicationUser
+                {
+                    Email = "van@domain.com",
+                    UserName = "van@domain.com",
+                    EmailConfirmed = true,
+                    PhoneNumber = "0944551356",
+                    PhoneNumberConfirmed = true,
+                    LockoutEnabled = true,
+                    AccessFailedCount = 0,
+                    TwoFactorEnabled = false,
+                    SecurityStamp = Guid.NewGuid().ToString("D")
+                };
+
+                await userManager.CreateAsync(user, "Abc@1234");
+                await userManager.AddToRoleAsync(user.Id, "Manager");
+            }
+
+            if (!userManager.Users.Any(u => u.UserName == "quynh@domain.com"))
+            {
+                var user = new ApplicationUser
+                {
+                    Email = "quynh@domain.com",
+                    UserName = "quynh@domain.com",
+                    EmailConfirmed = true,
+                    PhoneNumber = "0944551356",
+                    PhoneNumberConfirmed = true,
+                    LockoutEnabled = true,
+                    AccessFailedCount = 0,
+                    TwoFactorEnabled = false,
+                    SecurityStamp = Guid.NewGuid().ToString("D")
+                };
+
+                await userManager.CreateAsync(user, "Abc@1234");
+                await userManager.AddToRoleAsync(user.Id, "Seller");
+            }
+
+            if (!userManager.Users.Any(u => u.UserName == "customer@domain.com"))
+            {
+                var user = new ApplicationUser
+                {
+                    Email = "customer@domain.com",
+                    UserName = "customer@domain.com",
+                    EmailConfirmed = true,
+                    PhoneNumber = "0944551356",
+                    PhoneNumberConfirmed = true,
+                    LockoutEnabled = true,
+                    AccessFailedCount = 0,
+                    TwoFactorEnabled = false,
+                    SecurityStamp = Guid.NewGuid().ToString("D")
+                };
+
+                await userManager.CreateAsync(user, "Abc@1234");
+            }
+        }
     }
+    #endregion
 }

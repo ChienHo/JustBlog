@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FA.JustBlog.Core", "FA.JustBlog.Core\FA.JustBlog.Core.csproj", "{5E676712-9DC5-49B5-B8F8-E71AA8843B81}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FA.JustBlog.Presentation", "FA.JustBlog.Presentation\FA.JustBlog.Presentation.csproj", "{F081B074-7300-4C05-B999-D7C90EFF247A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5E676712-9DC5-49B5-B8F8-E71AA8843B81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E676712-9DC5-49B5-B8F8-E71AA8843B81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E676712-9DC5-49B5-B8F8-E71AA8843B81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F081B074-7300-4C05-B999-D7C90EFF247A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F081B074-7300-4C05-B999-D7C90EFF247A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F081B074-7300-4C05-B999-D7C90EFF247A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F081B074-7300-4C05-B999-D7C90EFF247A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

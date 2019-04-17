@@ -6,7 +6,7 @@ namespace FA.JustBlog.Core
     public class TagService : BaseService<Tag>, ITagService
 
     {
-        private JustBlogContext _context;
+        private readonly JustBlogContext _context;
         public TagService(IGenericRepository<Tag> genericRepository, JustBlogContext context) : base(genericRepository)
         {
             _context = context;

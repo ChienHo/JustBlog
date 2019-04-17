@@ -6,9 +6,10 @@ namespace FA.JustBlog.Core
 {
     public class PostService : BaseService<Post>, IPostService
     {
-        private JustBlogContext _justBlogContext;
-        public PostService(IGenericRepository<Post> genericRepository) : base(genericRepository)
+        private readonly JustBlogContext _justBlogContext;
+        public PostService(IGenericRepository<Post> genericRepository, JustBlogContext justBlogContext) : base(genericRepository)
         {
+            _justBlogContext = justBlogContext;
         }
         public int CountPostForCategory(string category)
         {

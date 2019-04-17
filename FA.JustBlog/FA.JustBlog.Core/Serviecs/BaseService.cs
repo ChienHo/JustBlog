@@ -48,19 +48,19 @@ namespace FA.JustBlog.Core
             return _genericRepository.GetAll();
         }
 
-        public async Task<PaginatedList<TEntity>> GetAsync(
-            Expression<Func<TEntity, bool>> filter = null,
-            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
-            string includeProperties = "", int page = 1, int pageSize = 10)
-        {
-            var query = _genericRepository.Get(filter: filter, includeProperties: includeProperties);
-            if (orderBy != null)
-            {
-                query = orderBy(query);
-            }
+        //public async Task<PaginatedList<TEntity>> GetAsync(
+        //    Expression<Func<TEntity, bool>> filter = null,
+        //    Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+        //    string includeProperties = "", int page = 1, int pageSize = 10)
+        //{
+        //    var query = _genericRepository.Get(filter: filter, includeProperties: includeProperties);
+        //    if (orderBy != null)
+        //    {
+        //        query = orderBy(query);
+        //    }
 
-            return await PaginatedList<TEntity>.CreateAsync(query.AsNoTracking(), page, pageSize);
-        }
+        //    return await PaginatedList<TEntity>.CreateAsync(query.AsNoTracking(), page, pageSize);
+        //}
 
         public TEntity GetById(object id)
         {

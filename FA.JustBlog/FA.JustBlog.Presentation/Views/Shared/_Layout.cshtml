@@ -1,0 +1,164 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <title>Just Blog</title>
+    @Styles.Render("~/bundles/Mytheme/css")
+</head>
+<body>
+
+    <!--================Header Menu Area =================-->
+    <header class="header_area">
+        <div class="logo_part">
+            <div class="container">
+                <a class="logo" href="#"><img src="~/Content/Theme/img/logo.png" alt=""></a>
+            </div>
+        </div>
+        <div class="main_menu">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav">
+
+                            <li class="nav-item active">@Html.ActionLink("Home", "", "Home", new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("About", "", "Home", new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Contact", "", "Home", new { @class = "nav-link" })</li>
+                            @*@Html.Action("ShowCategory", "Categories")*@
+                            @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">@Html.ActionLink("RolesAdmin", "", "RolesAdmin", new { @class = "nav-link" })</li>
+                                <li class="nav-item">@Html.ActionLink("UsersAdmin", "", "UsersAdmin", new { @class = "nav-link" })</li>
+                            }
+                            @Html.Partial("_LoginPartial")
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right ml-auto">
+                            <li class="nav-item"><a href="#" class="search"><i class="lnr lnr-magnifier"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+    <!--================Header Menu Area =================-->
+    <!--================Post Slider Area =================-->
+    <section class="post_slider_area" style="margin-top: 185px !important">
+        <div class="post_slider_inner owl-carousel">
+            <div class="item">
+                <div class="post_s_item">
+                    <div class="post_img">
+                        <img src="~/Content/Theme/img/post-slider/post-s-1.jpg" alt="">
+                    </div>
+                    <div class="post_text">
+                        <a class="cat" href="#">Gadgets</a>
+                        <a href="single-blog.html"><h4>Nest Protect: 2nd Gen Smoke + CO Alarm</h4></a>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                        <div class="date">
+                            <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> March 14, 2018</a>
+                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 05</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="post_s_item">
+                    <div class="post_img">
+                        <img src="~/Content/Theme/img/post-slider/post-s-2.jpg" alt="">
+                    </div>
+                    <div class="post_text">
+                        <a class="cat" href="#">Gadgets</a>
+                        <a href="single-blog.html"><h4>Nest Protect: 2nd Gen Smoke + CO Alarm</h4></a>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                        <div class="date">
+                            <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> March 14, 2018</a>
+                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 05</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="post_s_item">
+                    <div class="post_img">
+                        <img src="~/Content/Theme/img/post-slider/post-s-3.jpg" alt="">
+                    </div>
+                    <div class="post_text">
+                        <a class="cat" href="#">Gadgets</a>
+                        <a href="single-blog.html"><h4>Nest Protect: 2nd Gen Smoke + CO Alarm</h4></a>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                        <div class="date">
+                            <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> March 14, 2018</a>
+                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 05</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="post_s_item">
+                    <div class="post_img">
+                        <img src="~/Content/Theme/img/post-slider/post-s-4.jpg" alt="">
+                    </div>
+                    <div class="post_text">
+                        <a class="cat" href="#">Gadgets</a>
+                        <a href="single-blog.html"><h4>Nest Protect: 2nd Gen Smoke + CO Alarm</h4></a>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                        <div class="date">
+                            <a href="#"><i class="fa fa-calendar" aria-hidden="true"></i> March 14, 2018</a>
+                            <a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 05</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Post Slider Area =================-->
+    <section class="blog_area p_120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 mx-auto">
+                    @RenderBody()
+                </div>
+                <div class="col-lg-4 col-md-4 mx-auto">
+                    @*<aside class="single_sidebar_widget search_widget">
+                            <h3>About me!</h3>
+                            @Html.Action("AboutCard", "Home")
+                        </aside>
+                        <div class="post-preview border shadow p-3 mb-5 bg-white rounded p-2">
+                            <h3>Most view!</h3>
+                            @Html.Action("MostViewedPosts", "Post")
+                        </div>
+                        <div class="post-preview border shadow p-3 mb-5 bg-white rounded p-2">
+                            <h3>Last view!</h3>
+                            @Html.Action("LatestPostsinside", "Post")
+                        </div>*@
+                    @*<div class="post-preview border shadow p-3 mb-5 bg-white rounded p-2">
+                            <h3>Tag</h3>
+                            @Html.Action("PopularTags", "Tag")
+                        </div>*@
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--================ start footer Area  =================-->
+    @Html.Partial("_FooterPartial")
+    <!--================ End footer Area  =================-->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    @Scripts.Render("~/bundles/Mytheme/js")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
