@@ -1,0 +1,7 @@
+﻿@model IEnumerable<FA.JustBlog.Core.Category>
+@foreach (var item in Model)
+{
+    <li class="nav-item">
+        @Html.ActionLink(item.Name, "ShowPostByCategory", "Posts", new { categoryName = item.Name }, new { @class = "nav-link" })  
+    </li>
+}

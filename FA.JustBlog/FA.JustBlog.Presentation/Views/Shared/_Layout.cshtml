@@ -31,10 +31,10 @@
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav">
 
-                            <li class="nav-item active">@Html.ActionLink("Home", "", "Home", new { @class = "nav-link" })</li>
-                            <li class="nav-item">@Html.ActionLink("About", "", "Home", new { @class = "nav-link" })</li>
-                            <li class="nav-item">@Html.ActionLink("Contact", "", "Home", new { @class = "nav-link" })</li>
-                            @*@Html.Action("ShowCategory", "Categories")*@
+                            <li class="nav-item">  <a class="nav-link" href="@Url.Action("Index", "Posts", new {Area=""})">Home</a></li>
+                            <li class="nav-item">  <a class="nav-link" href="@Url.Action("Contact", "Home", new {Area=""})">Contact</a></li>
+                           
+                            @Html.Action("ShowCategory", "Category")
                             @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                             {
                                 <li class="nav-item">@Html.ActionLink("RolesAdmin", "", "RolesAdmin", new { @class = "nav-link" })</li>
@@ -130,18 +130,18 @@
                     @RenderBody()
                 </div>
                 <div class="col-lg-4 col-md-4 mx-auto">
-                    @*<aside class="single_sidebar_widget search_widget">
-                            <h3>About me!</h3>
+                    <aside class="single_sidebar_widget search_widget">
+                            <h3>About Cart!</h3>
                             @Html.Action("AboutCard", "Home")
                         </aside>
                         <div class="post-preview border shadow p-3 mb-5 bg-white rounded p-2">
                             <h3>Most view!</h3>
-                            @Html.Action("MostViewedPosts", "Post")
+                            @Html.Action("MostViewedPosts", "Posts")
                         </div>
                         <div class="post-preview border shadow p-3 mb-5 bg-white rounded p-2">
                             <h3>Last view!</h3>
-                            @Html.Action("LatestPostsinside", "Post")
-                        </div>*@
+                            @Html.Action("LatestPostsinside", "Posts")
+                        </div>
                     @*<div class="post-preview border shadow p-3 mb-5 bg-white rounded p-2">
                             <h3>Tag</h3>
                             @Html.Action("PopularTags", "Tag")

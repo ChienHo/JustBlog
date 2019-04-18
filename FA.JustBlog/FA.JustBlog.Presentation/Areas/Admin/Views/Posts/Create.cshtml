@@ -1,0 +1,75 @@
+﻿@model FA.JustBlog.Core.Post
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create", "Posts", FormMethod.Post, new { id = "frm", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Post</h4>
+        <hr />
+        @Html.Partial("AddOrUpdate")
+        <div class="form-group">
+            <label class="control-label" for="ImgUrl">Image Thumbnail:</label>
+            <div class="form-row">
+                <div class="col-6">
+                    <input type="file" class="custom-file-input" id="validatedCustomFile" name="ImgUrl" onchange="readURL(this)">
+                    <label class="custom-file-label" for="validatedCustomFile">Choose an image</label>
+                </div>
+                <div class="col-6">
+                    <img id="FileImage" src="/Assets/images/avatar/avatar-1.png" name="ImgUrl" alt="your image" class="img-thumbnail" width="200" />
+                    @Html.ValidationMessageFor(m => m.ImgUrl, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" value="Create" class="btn btn-success" id="Create" />
+            </div>
+        </div>
+    </div>
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+@section InputTag
+{
+    <script src="~/Areas/Content/js/bootstrap-tagsinput.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+}
+
+@section Ckediter{
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/ckeditor/ckeditorconfig.js"></script>
+    <script src="~/Content/readurl.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(document).on('change', ':file', function () {
+                var input = $(this), numFiles = input.get(0).files ? input.get(0).files.length : 1,
+                    label = input.val().replace(/\\/g, '/').replace(/.*\//, ''); input.trigger('fileselect', [numFiles, label]);
+            });
+            $(document).ready(function () {
+                $(':file').on('fileselect', function (event, numFiles, label) {
+                    var input = $(this).parents('.custom-file').find('.custom-file-label'),
+                        log = numFiles > 1 ? numFiles + ' files selected' : label; if (input.length) { input.text(log); } else { if (log) alert(log); }
+                });
+            });
+        });
+        $(document).ready(function () {
+            $("#Create").click(function () {
+                $("#frm").submit();
+            });
+        });
+
+    </script>
+}

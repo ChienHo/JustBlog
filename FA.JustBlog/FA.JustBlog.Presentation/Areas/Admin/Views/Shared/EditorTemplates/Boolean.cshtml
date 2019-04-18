@@ -1,0 +1,26 @@
+﻿@model bool?
+@if (!Model.HasValue)
+{
+    <div>
+        <input type="radio" name="Published" value="True" checked /> Yes
+        <input type="radio" name="Published" value="False" /> No
+    </div>
+}
+else
+{
+    if (Model.Value)
+    {
+        <div>
+            <input type="radio" name="Published" value="True" checked /> Yes
+            <input type="radio" name="Published" value="False" /> No
+        </div>
+    }
+    else
+    {
+        <div>
+            <input type="radio" name="Published" value="True"/> Yes
+            <input type="radio" name="Published" value="False" checked/> No
+        </div>
+    }
+}
+

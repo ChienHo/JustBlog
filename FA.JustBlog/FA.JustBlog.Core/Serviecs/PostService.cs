@@ -21,15 +21,13 @@ namespace FA.JustBlog.Core
             throw new NotImplementedException();
         }
 
-        public IQueryable<Post> FindPost(int year, int month, string title)
+        public Post FindPost(int year, int month, string title)
         {
-            throw new NotImplementedException();
+          
+            var post = GetAll().Where(p =>
+                p.PostedOn.Value.Year == year && p.PostedOn.Value.Month == month && p.Title.Trim() == title.Trim()).SingleOrDefault();
+            return post;
         }
-
-        //public IQueryable<Post> FindPost(int year, int month, string title)
-        //{
-        //   return  JustBlogContext
-        //}
 
         public IEnumerable<Post> GetByMonth(DateTime monthYear)
         {

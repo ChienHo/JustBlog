@@ -52,6 +52,17 @@ namespace FA.JustBlog.Presentation
                 "~/Content/Theme/vendors/jquery-ui/jquery-ui.js",
                 "~/Content/Theme/js/mail-script.js",
                 "~/Content/Theme/js/theme.js"));
+
+            bundles.Add(new StyleBundle("~/bundles/Admin/css").Include(
+                "~/Content/Theme/css/bootstrap.css",
+                "~/Areas/Content/css/sb-admin-2.min.css",
+                "~/Areas/Content/vendor/fontawesome-free/css/all.min.css",
+                "~/Areas/Content/css/bootstrap-tagsinput.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/Admin/bootstrap").Include(
+                "~/Areas/Content/vendor/jquery/jquery.min.js",
+                "~/Areas/Content/vendor/bootstrap/js/bootstrap.bundle.min.js",
+                "~/Areas/Content/vendor/jquery-easing/jquery.easing.min.js"));
         }
     }
 }

@@ -26,5 +26,9 @@ namespace FA.JustBlog.Presentation.Controllers
 
             return View();
         }
+        public ActionResult AboutCard()
+        {
+            return PartialView("_PartialAboutCard");
+        }
     }
 }

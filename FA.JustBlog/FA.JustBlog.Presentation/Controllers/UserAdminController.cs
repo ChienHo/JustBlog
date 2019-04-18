@@ -10,7 +10,7 @@ using FA.JustBlog.Core;
 
 namespace FA.JustBlog.Presentation.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    
     public class UsersAdminController : Controller
     {
         public UsersAdminController()
@@ -51,6 +51,7 @@ namespace FA.JustBlog.Presentation.Controllers
 
         //
         // GET: /Users/
+        [Authorize(Roles = "Administrators,Contributor")]
         [HttpGet]
         public async Task<ActionResult> Index()
         {
@@ -59,6 +60,7 @@ namespace FA.JustBlog.Presentation.Controllers
 
         //
         // GET: /Users/Details/5
+        [Authorize(Roles = "Administrators,Contributor")]
         [HttpGet]
         public async Task<ActionResult> Details(string id)
         {
@@ -72,7 +74,7 @@ namespace FA.JustBlog.Presentation.Controllers
 
             return View(user);
         }
-
+        [Authorize(Roles = "Administrators")]
         //
         // GET: /Users/Create
         [HttpGet]
@@ -82,7 +84,7 @@ namespace FA.JustBlog.Presentation.Controllers
             ViewBag.RoleId = new SelectList(await RoleManager.Roles.ToListAsync(), "Name", "Name");
             return View();
         }
-
+        [Authorize(Roles = "Administrators")]
         //
         // POST: /Users/Create
         [HttpPost]
@@ -120,7 +122,7 @@ namespace FA.JustBlog.Presentation.Controllers
             ViewBag.RoleId = new SelectList(RoleManager.Roles, "Name", "Name");
             return View();
         }
-
+        [Authorize(Roles = "Administrators")]
         //
         // GET: /Users/Edit/1
         [HttpGet]
@@ -150,7 +152,7 @@ namespace FA.JustBlog.Presentation.Controllers
                 })
             });
         }
-
+        [Authorize(Roles = "Administrators")]
         //
         // POST: /Users/Edit/5
         [HttpPost]
@@ -191,7 +193,7 @@ namespace FA.JustBlog.Presentation.Controllers
             ModelState.AddModelError("", "Something failed.");
             return View();
         }
-
+        [Authorize(Roles = "Administrators")]
         //
         // GET: /Users/Delete/5
         [HttpGet]
@@ -208,7 +210,7 @@ namespace FA.JustBlog.Presentation.Controllers
             }
             return View(user);
         }
-
+        [Authorize(Roles = "Administrators")]
         //
         // POST: /Users/Delete/5
         [HttpPost]

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FA.JustBlog.Core
 {
-    class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
         private readonly JustBlogContext _context;
         private readonly DbSet<TEntity> _dbSet;

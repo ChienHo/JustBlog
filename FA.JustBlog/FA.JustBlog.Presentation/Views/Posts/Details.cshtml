@@ -1,0 +1,39 @@
+﻿@model FA.JustBlog.Core.Post
+@{
+    ViewBag.Title = "Details";
+}
+<div class="main_blog_details">
+    <img class="img-fluid" src="~/Content/Theme/img/@Model.ImgUrl" alt="">
+    <a href="#"><h4>@Model.Title</h4></a>
+    <div class="user_details">
+        <div class="float-left">
+            <a href="#">Lifestyle</a>
+            <a href="#">Gadget</a>
+        </div>
+        <div class="float-right">
+            <div class="media">
+                <div class="media-body">
+                    <a href="#">
+                        <i class="fa fa-calendar" aria-hidden="true"></i> Posted by
+                        Post on @Html.DisplayFor(modelItem => item.PostedOn)
+                        Viewed @Html.DisplayFor(modelItem => item.ViewCount) time(s)
+                        With Rate @Html.DisplayFor(modelItem => item.Rate)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>@Model.Description</p>
+  
+    <div class="news_d_footer">
+        <a href="#"><i class="lnr lnr lnr-heart"></i>Lily and 4 people like this</a>
+        <a class="justify-content-center ml-auto" href="#"><i class="lnr lnr lnr-bubble"></i>06 Comments</a>
+        <div class="news_socail ml-auto">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-youtube-play"></i></a>
+            <a href="#"><i class="fa fa-pinterest"></i></a>
+            <a href="#"><i class="fa fa-rss"></i></a>
+        </div>
+    </div>
+</div>

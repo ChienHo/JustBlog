@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FA.JustBlog.Core.Services
+namespace FA.JustBlog.Core
 {
     public interface ICategoryService: IBaseService<Category>, IDisposable
     {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace FA.JustBlog.Core
 {
    public class Post
-    {
+   {
         [Key]
         public int Id { get; set; }
         [Required(ErrorMessage = "Title name is required.")]

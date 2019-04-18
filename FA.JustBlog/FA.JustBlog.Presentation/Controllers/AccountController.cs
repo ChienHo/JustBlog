@@ -10,7 +10,7 @@ using FA.JustBlog.Core;
 
 namespace FA.JustBlog.Presentation.Controllers
 {
-    [Authorize]
+
     public class AccountController : Controller
     {
         public AccountController()

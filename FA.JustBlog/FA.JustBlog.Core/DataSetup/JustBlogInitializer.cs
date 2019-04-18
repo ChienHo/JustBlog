@@ -158,8 +158,8 @@ namespace FA.JustBlog.Core
             if (!roleManager.Roles.Any())
             {
                 await roleManager.CreateAsync(new IdentityRole("Administrators"));
-                await roleManager.CreateAsync(new IdentityRole("Manager"));
-                await roleManager.CreateAsync(new IdentityRole("Seller"));
+                await roleManager.CreateAsync(new IdentityRole("Contributor"));
+                await roleManager.CreateAsync(new IdentityRole("User"));
             }
 
             if (!userManager.Users.Any(u => u.UserName == "admin@domain.com"))
@@ -180,11 +180,11 @@ namespace FA.JustBlog.Core
 
                 await userManager.CreateAsync(user, "Abc@1234");
                 await userManager.AddToRoleAsync(user.Id, "Administrators");
-                await userManager.AddToRoleAsync(user.Id, "Manager");
-                await userManager.AddToRoleAsync(user.Id, "Seller");
+                await userManager.AddToRoleAsync(user.Id, "Contributor");
+                await userManager.AddToRoleAsync(user.Id, "User");
             }
 
-            if (!userManager.Users.Any(u => u.UserName == "cong@domain.com"))
+            if (!userManager.Users.Any(u => u.UserName == "Chien@domain.com"))
             {
                 var user = new ApplicationUser
                 {
@@ -219,7 +219,7 @@ namespace FA.JustBlog.Core
                 };
 
                 await userManager.CreateAsync(user, "Abc@1234");
-                await userManager.AddToRoleAsync(user.Id, "Manager");
+                await userManager.AddToRoleAsync(user.Id, "Contributor");
             }
 
             if (!userManager.Users.Any(u => u.UserName == "quynh@domain.com"))
@@ -238,7 +238,7 @@ namespace FA.JustBlog.Core
                 };
 
                 await userManager.CreateAsync(user, "Abc@1234");
-                await userManager.AddToRoleAsync(user.Id, "Seller");
+                await userManager.AddToRoleAsync(user.Id, "User");
             }
 
             if (!userManager.Users.Any(u => u.UserName == "customer@domain.com"))
@@ -257,6 +257,7 @@ namespace FA.JustBlog.Core
                 };
 
                 await userManager.CreateAsync(user, "Abc@1234");
+                await userManager.AddToRoleAsync(user.Id, "User");
             }
         }
     }

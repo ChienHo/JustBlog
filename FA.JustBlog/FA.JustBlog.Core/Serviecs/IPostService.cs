@@ -14,6 +14,6 @@ namespace FA.JustBlog.Core
         IEnumerable<Post> GetPostByTag(string tag);
         IEnumerable<Post> GetMostViewedPost(int size);
         IEnumerable<Post> GetHighestPosts(int size);
-        IQueryable<Post> FindPost(int year, int month, string title);
+        Post FindPost(int year, int month, string title);
     }
 }

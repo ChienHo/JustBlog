@@ -1,0 +1,22 @@
+﻿@model IEnumerable<FA.JustBlog.Core.Post>
+<aside class="single_sidebar_widget popular_post_widget">
+
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <div class="media post_item">
+                @*@Url.Action(" Detail","Post",new {id=item.Id}*@
+                <div class="media-body">
+                    <a class="alert-link" href="#">
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </a>
+                    <div class="date">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        Post on @Html.DisplayFor(modelItem => item.PostedOn)
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</aside>

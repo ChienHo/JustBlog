@@ -1,0 +1,29 @@
+﻿@model IEnumerable<FA.JustBlog.Core.Post>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+            @foreach (var item in Model)
+            {
+                <div class="post-preview">
+                    @Html.ActionLink(item.Title, "Details","Posts" , new {@year = item.PostedOn.Value.Year, month =
+                        item.PostedOn.Value.Month.ToString("00"), title = item.Title}, null)
+                    <h2 class="post-title">
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </h2>
+                    <p class="post-meta">
+                        Posted by
+                        Post on @Html.DisplayFor(modelItem => item.Modified)
+                        Viewed @Html.DisplayFor(modelItem => item.ViewCount) time(s)
+                        With Rate @Html.DisplayFor(modelItem => item.Rate)
+                    </p>
+                    <span>@Html.DisplayFor(modelItem => item.ShortDescription)</span>
+                    <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                </div>
+                <hr>
+            }
+            <!-- Pager -->
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-﻿namespace FA.JustBlog.Core.Services
+﻿namespace FA.JustBlog.Core
 {
     public class CategoryService : BaseService<Category>, ICategoryService
     {
